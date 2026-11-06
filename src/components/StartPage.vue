@@ -1,7 +1,7 @@
 
 <template>
   <div class="start-page">
-    <h1>ToM 1st order</h1>
+    <h1>ToM 2nd order</h1>
 
     <div class="form-group">
       <label for="participant-id">

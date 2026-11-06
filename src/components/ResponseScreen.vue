@@ -1,16 +1,34 @@
 
 <template>
   <div class="response-screen">
-    <div class="options">
+    <div class="image-container">
+
+      <!-- Vollständiges Endbild -->
+      <img
+        class="background-image"
+        :src="images.src"
+        alt="Endbild"
+      />
+
+      <!-- Unsichtbare Klickflächen -->
       <button
-        v-for="(image, index) in images"
-        :key="index"
-        class="image-option"
-        :class="'option-' + index"
-        @click="selectImage(image)"
-      >
-        <img :src="image.src" :alt="image.label" />
-      </button>
+        class="hotspot hotspot-1"
+        @click="selectImage(1)"
+        aria-label="Linke Gedankenblase"
+      ></button>
+
+      <button
+        class="hotspot hotspot-2"
+        @click="selectImage(2)"
+        aria-label="Mittlere Gedankenblase"
+      ></button>
+
+      <button
+        class="hotspot hotspot-3"
+        @click="selectImage(3)"
+        aria-label="Rechte Gedankenblase"
+      ></button>
+
     </div>
   </div>
 </template>
@@ -21,14 +39,14 @@ export default {
 
   props: {
     images: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
 
   methods: {
-    selectImage(image) {
-      this.$emit("answer", image.label);
+    selectImage(number) {
+      this.$emit("answer", number);
     }
   }
 };
@@ -38,73 +56,61 @@ export default {
 .response-screen {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: black;
   overflow: hidden;
 }
 
-/* Weißer Bereich im Seitenverhältnis 4:3 */
-.options {
+.image-container {
   position: relative;
-  width: min(75vw, 133.333vh);
+  height: 85dvh;
+  width: auto;
   aspect-ratio: 4 / 3;
-  background: white;
-}
-
-/* Drei anklickbare Bilder */
-.image-option {
-  position: absolute;
-  top: 3%;
-  width: 27.3%;
-  height: 84.5%;
-
-  box-sizing: border-box;
-  padding: 0;
-  border: 2px solid #444;
-  border-radius: 0;
-
-  background: transparent;
-  cursor: pointer;
+  max-width: 100vw;
+  flex-shrink: 0;
   overflow: hidden;
+}
+
+.background-image {
   display: block;
-}
-
-.option-0 {
-  left: 2.6%;
-}
-
-.option-1 {
-  left: 36.4%;
-}
-
-.option-2 {
-  left: 70.2%;
-}
-
-.image-option img {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-
+  width: 100%;
+  height: 100%;
+  max-height: none !important;
   max-width: none;
-  max-height: none;
-  min-height: 100%;
-
   object-fit: fill;
 }
 
-.image-option:focus {
+.hotspot {
+  position: absolute;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   outline: none;
+}
+
+.hotspot-1 {
+  left: 1%;
+  top: 5%;
+  width: 29%;
+  height: 69%;
+}
+
+.hotspot-2 {
+  left: 35.5%;
+  top: 5%;
+  width: 29%;
+  height: 69%;
+}
+
+.hotspot-3 {
+  left: 70%;
+  top: 5%;
+  width: 29%;
+  height: 69%;
 }
 </style>

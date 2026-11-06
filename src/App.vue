@@ -157,7 +157,7 @@ export default {
     },
 
     saveLocally() {
-      const storageKey = "tom1_experiment_data";
+      const storageKey = "tom2_experiment_data";
 
       const existingData = JSON.parse(
         localStorage.getItem(storageKey) || "[]"
@@ -183,7 +183,7 @@ export default {
     },
 
     exportData() {
-      const storageKey = "tom1_experiment_data";
+      const storageKey = "tom2_experiment_data";
 
       const allData = JSON.parse(
         localStorage.getItem(storageKey) || "[]"
@@ -236,13 +236,13 @@ export default {
       const link = document.createElement("a");
 
       link.href = url;
-      link.download = "tom1_experiment_data.csv";
+      link.download = "tom2_experiment_data.csv";
       link.click();
 
       URL.revokeObjectURL(url);
     },
     updateSavedParticipantCount() {
-      const storageKey = "tom1_experiment_data";
+      const storageKey = "tom2_experiment_data";
 
       const existingData = JSON.parse(
         localStorage.getItem(storageKey) || "[]"
@@ -255,9 +255,19 @@ export default {
 </script>
 
 <style>
+html,
+body,
 #app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
   font-family: Arial, sans-serif;
   color: #222;
+}
+
+body {
+  overflow: hidden;
 }
 
 .finished {

@@ -1,4 +1,4 @@
-# ToM (1st order)
+# ToM (2nd order)
 
 This is a sample experiment using magpie.
 ### Setup

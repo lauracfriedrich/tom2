@@ -1,85 +1,84 @@
 
 const experiment = {
   1: {
-    intro: "FB1_Introduction.mp4",
+    intro: "FB2_Introduction.mp4",
 
     trials: [
-      "FB1_Control1_Jugglingclub.mp4",
-      "FB1_Test4_Bottles.mp4",
-      "FB1_Test1_Pencil.mp4",
-      "FB1_Control2_Hulahoop.mp4"
+      "FB2_Practice1_Hats.mp4",
+      "FB2_Test2_Trampoline.mp4",
+      "FB2_Practice2_Popcorn.mp4",
+      "FB2_Test3_Pizzabox.mp4"
     ],
 
     answers: {
-      "FB1_Control1_Jugglingclub.mp4": {
-        1: "correct",
-        2: "oddball",
-        3: "incorrect"
-      },
-      "FB1_Test4_Bottles.mp4": {
+      "FB2_Practice1_Hats.mp4": {
         1: "incorrect",
         2: "oddball",
         3: "correct"
       },
-      "FB1_Test1_Pencil.mp4": {
+      "FB2_Test2_Trampoline.mp4": {
         1: "oddball",
         2: "correct",
         3: "incorrect"
       },
-      "FB1_Control2_Hulahoop.mp4": {
+      "FB2_Practice2_Popcorn.mp4": {
+        1: "correct",
+        2: "incorrect",
+        3: "oddball"
+      },
+      "FB2_Test3_Pizzabox.mp4": {
         1: "correct",
         2: "incorrect",
         3: "oddball"
       }
     },
 
-    end: "FB1_End.mp4"
+    end: "FB2_End.mp4"
   },
 
   2: {
-    intro: "FB1_Introduction.mp4",
+    intro: "FB2_Introduction.mp4",
 
     trials: [
-      "FB1_Practice1_Hats.mp4",
-      "FB1_Test3_Lightbulb.mp4",
-      "FB1_Test2_Hideandseek.mp4",
-      "FB1_Practice2_Popcorn.mp4"
+      "FB2_Control1_Rope.mp4",
+      "FB2_Test1_Hulahoop.mp4",
+      "FB2_Control2_Pencils.mp4",
+      "FB2_Test4_Soapbubble.mp4"
     ],
 
     answers: {
-      "FB1_Practice1_Hats.mp4": {
+      "FB2_Control1_Rope.mp4": {
+        1: "oddball",
+        2: "incorrect",
+        3: "correct"
+      },
+      "FB2_Test1_Hulahoop.mp4": {
         1: "incorrect",
         2: "oddball",
         3: "correct"
       },
-      "FB1_Test3_Lightbulb.mp4": {
-        1: "incorrect",
-        2: "oddball",
-        3: "correct"
-      },
-      "FB1_Test2_Hideandseek.mp4": {
+      "FB2_Control2_Pencils.mp4": {
         1: "oddball",
         2: "correct",
         3: "incorrect"
       },
-      "FB1_Practice2_Popcorn.mp4": {
+      "FB2_Test4_Soapbubble.mp4": {
         1: "correct",
-        2: "incorrect",
-        3: "oddball"
+        2: "oddball",
+        3: "incorrect"
       }
     },
 
-    end: "FB1_End.mp4"
+    end: "FB2_End.mp4"
   }
 };
 
 export function getTrialImages(videoName) {
   const baseName = videoName.replace(".mp4", "");
 
-  return [1, 2, 3].map(number => ({
-    label: String(number),
-    src: `${process.env.BASE_URL}images/${baseName}_${number}.png`
-  }));
+  return {
+    src: `${process.env.BASE_URL}images/${baseName}.png`
+  };
 }
 
 
