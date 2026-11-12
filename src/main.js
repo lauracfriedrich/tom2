@@ -3,6 +3,7 @@ import VueKonva from 'vue-konva';
 import VueMagpie from 'magpie-base';
 import App from './App.vue';
 import magpieConfig from './magpie.config.js';
+import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 

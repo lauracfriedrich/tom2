@@ -1,5 +1,5 @@
 {
-  "name": "norming_irony_adults",
+  "name": "tom2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "@samhammer/vue-cli-plugin-stylelint": "5.x",
-    "@vue/cli-plugin-eslint": "5.x"
+    "@vue/cli-plugin-eslint": "5.x",
+    "@vue/cli-plugin-pwa": "^5.0.9"
   },
   "engines": {
     "node": "14.x || 16.x || 18.x || 20.x",
